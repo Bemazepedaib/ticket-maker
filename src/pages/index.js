@@ -39,7 +39,6 @@ function Home() {
     setArticulo("")
     setPrecio(0)
     setCantidad(0)
-    
   }
 
   const pushArticulo = () => {
