@@ -39,6 +39,8 @@ function Home() {
     setArticulo("")
     setPrecio(0)
     setCantidad(0)
+    total.current = 0
+    articulos.current = []
   }
 
   const pushArticulo = () => {
