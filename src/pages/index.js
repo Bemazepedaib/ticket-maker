@@ -83,6 +83,7 @@ function Home() {
     }
     resetTodo()
     ticketRef.current.focus()
+    
   }
 
   return (
