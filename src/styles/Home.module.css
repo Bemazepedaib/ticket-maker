@@ -9,7 +9,7 @@
 }
 
 .ticket {
-  width: 40vw;
+  width: 440px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,12 +24,12 @@
   font-weight: 300;
   font-style: italic;
   font-size: 32px;
-  width: 90%;
+  width: 100%;
   margin-top: 20px;
 }
 
 .linea {
-  width: 90%;
+  width: 100%;
   border: 2px solid black;
   border-radius: 5px;
   margin: 20px 0px;
@@ -39,7 +39,7 @@
   font-family: 'Jost', sans-serif;
   font-weight: 300;
   font-size: 35px;
-  width: 90%;
+  width: 100%;
   display: flex;
   margin-bottom: 40px;
 }
@@ -52,8 +52,8 @@
 .ticketProducts {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 35px;
-  width: 90%;
+  font-size: 32px;
+  width: 100%;
 }
 
 .precio {
@@ -63,16 +63,16 @@
 .total {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 35px;
-  width: 90%;
+  font-size: 32px;
+  width: 100%;
   text-align: end;
 }
 
 .final {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 35px;
-  width: 90%;
+  font-size: 32px;
+  width: 100%;
   margin-top: 50px;
   text-align: center;
 }
