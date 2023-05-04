@@ -1,135 +1,135 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 
 .mainContainer {
-  color: #000;
-  display: flex;
-  gap: 30px;
-  padding: 10px;
+	color: #000;
+	display: flex;
+	gap: 30px;
+	padding: 10px;
 
 }
 
 .ticket {
-  width: 440px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 90px 50px;
-  margin: 10px;
-  background-color: #ffffff;
+	width: 440px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 90px 50px;
+	margin: 10px;
+	background-color: #ffffff;
 }
 
 .ticketHeader {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 32px;
-  width: 100%;
-  margin-top: 20px;
+	font-family: 'Jost', sans-serif;
+	font-weight: 300;
+	font-style: italic;
+	font-size: 32px;
+	width: 100%;
+	margin-top: 20px;
 }
 
 .linea {
-  width: 100%;
-  border: 2px solid black;
-  border-radius: 5px;
-  margin: 20px 0px;
+	width: 100%;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: 20px 0px;
 }
 
 .ticketClient {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 35px;
-  width: 100%;
-  display: flex;
-  margin-bottom: 40px;
+	font-family: 'Jost', sans-serif;
+	font-weight: 300;
+	font-size: 35px;
+	width: 100%;
+	display: flex;
+	margin-bottom: 40px;
 }
 
 .client {
-  font-weight: bold;
-  font-style: italic;
+	font-weight: bold;
+	font-style: italic;
 }
 
 .ticketProducts {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 32px;
-  width: 100%;
+	font-family: 'Jost', sans-serif;
+	font-weight: 300;
+	font-size: 32px;
+	width: 100%;
 }
 
 .precio {
-  text-align: end;
+	text-align: end;
 }
 
 .total {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 32px;
-  width: 100%;
-  text-align: end;
+	font-family: 'Jost', sans-serif;
+	font-weight: 300;
+	font-size: 32px;
+	width: 100%;
+	text-align: end;
 }
 
 .final {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 32px;
-  width: 100%;
-  margin-top: 50px;
-  text-align: center;
+	font-family: 'Jost', sans-serif;
+	font-weight: 300;
+	font-size: 32px;
+	width: 100%;
+	margin-top: 50px;
+	text-align: center;
 }
 
 .addForm {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 60vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 60vw;
 }
 
 .articulo:hover {
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  cursor: pointer;
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	cursor: pointer;
 }
 
 .botonArticulo {
-  height: 40px;
-  width: 100%;
-  margin-top: 30px;
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 20px;
-  cursor: pointer;
+	height: 40px;
+	width: 100%;
+	margin-top: 30px;
+	font-family: 'Jost', sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	cursor: pointer;
 }
 
 .botonTicket {
-  position: relative;
-  height: 40px;
-  width: 80%;
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 20px;
-  cursor: pointer;
+	position: relative;
+	height: 40px;
+	width: 80%;
+	font-family: 'Jost', sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	cursor: pointer;
 }
 
 .fourFlex {
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  width: 40%;
-  gap: 10px
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	width: 40%;
+	gap: 10px
 }
 
 @media (max-width: 1025px) {
-  .addForm {
-    gap: 0px;
-  }
+	.addForm {
+		gap: 0px;
+	}
 
-  .fourFlex {
-    width: 100%;
-    padding: 10px;
-    gap: 10px;
-    flex-direction: row;
-  }
+	.fourFlex {
+		width: 100%;
+		padding: 10px;
+		gap: 10px;
+		flex-direction: row;
+	}
 }
