@@ -23,3 +23,9 @@
     font-size: 15px;
     padding: 5px;
 }
+
+@media (max-width: 1025px) {
+    .input {
+        height: 20px;
+    }
+}

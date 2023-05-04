@@ -33,8 +33,6 @@ function Home() {
   }
 
   const resetTodo = () => {
-    setCampania("")
-    setFecha("")
     setCliente("")
     setArticulo("")
     setPrecio(0)
