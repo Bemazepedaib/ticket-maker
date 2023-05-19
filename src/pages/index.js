@@ -118,9 +118,9 @@ function Home() {
 				<div className={Styles.addForm}>
 					<div className={Styles.fourFlex}>
 						<Select estado={empresa} cambiarEstado={setEmpresa}></Select>
-						<Input estado={campania} cambiarEstado={setCampania} label={"Campaña"} placeholder={"Agregue una campaña"} innerRef={ticketRef}></Input>
+						<Input estado={campania} cambiarEstado={setCampania} label={"Campaña"} placeholder={"Agregue una campaña"} ></Input>
 						<Input estado={fecha} cambiarEstado={setFecha} label={"Fecha"} placeholder={"Agregue una fecha"} ></Input>
-						<Input estado={cliente} cambiarEstado={setCliente} label={"Cliente"} placeholder={"Agregue un cliente"} ></Input>
+						<Input estado={cliente} cambiarEstado={setCliente} label={"Cliente"} placeholder={"Agregue un cliente"} innerRef={ticketRef}></Input>
 					</div>
 					<div className={Styles.fourFlex}>
 						<Input estado={articulo} cambiarEstado={setArticulo} label={"Artículo"} placeholder={"Agregue un artículo"} innerRef={inputRef}></Input>
