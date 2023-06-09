@@ -5,7 +5,7 @@
 	display: flex;
 	gap: 30px;
 	padding: 10px;
-
+	font-family: 'Jost', sans-serif;
 }
 
 .ticket {
@@ -20,7 +20,6 @@
 }
 
 .ticketHeader {
-	font-family: 'Jost', sans-serif;
 	font-weight: 300;
 	font-style: italic;
 	font-size: 32px;
@@ -35,8 +34,7 @@
 	margin: 20px 0px;
 }
 
-.ticketClient {
-	font-family: 'Jost', sans-serif;
+.ticketClient { 
 	font-weight: 300;
 	font-size: 35px;
 	width: 100%;
@@ -50,7 +48,6 @@
 }
 
 .ticketProducts {
-	font-family: 'Jost', sans-serif;
 	font-weight: 300;
 	font-size: 32px;
 	width: 100%;
@@ -61,7 +58,6 @@
 }
 
 .total {
-	font-family: 'Jost', sans-serif;
 	font-weight: 300;
 	font-size: 32px;
 	width: 100%;
@@ -69,7 +65,6 @@
 }
 
 .final {
-	font-family: 'Jost', sans-serif;
 	font-weight: 300;
 	font-size: 32px;
 	width: 100%;
@@ -78,14 +73,26 @@
 }
 
 .addForm {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+	
 	flex-wrap: wrap;
-	width: 60vw;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 10px;
+	width: 60%;
 }
 
 .articulo:hover {
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	cursor: pointer;
+}
+
+.faltante {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 20px;
+}
+
+.faltante:hover {
 	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 	cursor: pointer;
 }
@@ -94,7 +101,6 @@
 	height: 40px;
 	width: 100%;
 	margin-top: 30px;
-	font-family: 'Jost', sans-serif;
 	font-weight: 300;
 	font-size: 20px;
 	cursor: pointer;
@@ -103,22 +109,67 @@
 .botonTicket {
 	position: relative;
 	height: 40px;
-	width: 80%;
-	font-family: 'Jost', sans-serif;
+	width: 100%;
 	font-weight: 300;
 	font-size: 20px;
+	margin-top: 10px;
 	cursor: pointer;
 }
 
-.fourFlex {
-	padding: 40px;
+.miniFlex {
+	margin-top: 10px;
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 10px
+}
+
+.fondo {
+	/* box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75); */
+	transform: rotate(180deg);
+}
+
+.fondoText1 {
 	display: flex;
 	flex-direction: column;
-	flex-wrap: wrap;
-	align-items: center;
 	justify-content: center;
-	width: 40%;
-	gap: 10px
+	font-size: 25px;
+	text-align: justify;
+	font-weight: 300;
+	padding: 50px 30px 0px 30px;
+}
+
+.fondoText2 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 25px;
+	text-align: justify;
+	font-weight: 300;
+	padding: 0px 30px 50px 30px;
+}
+
+.uploadButton {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0 50px;
+}
+
+.qrText {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.grupoImg {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }
 
 @media (max-width: 1025px) {
