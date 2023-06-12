@@ -11,7 +11,7 @@ import Collapsible from './elements/Collapsible';
 
 function Home() {
 
-	const [empresa, setEmpresa] = useState('/logo_carmel.png|/fondo_carmel.svg|CARMEL')
+	const [empresa, setEmpresa] = useState('/logo_carmel.png|CARMEL')
 
 	const [campania, setCampania] = useState("")
 	const [fecha, setFecha] = useState("")
@@ -49,10 +49,10 @@ function Home() {
 	useEffect(() => {
 		if (faltantes) {
 			setTexto1("Muchas gracias por tu compra. Lamentablemente, algunos de los productos de tu pedido estaban agotados:")
-			setTexto2(`Sin embargo, si te interesa buscar ropa similar, ¡anímate a revisar nuestro nuevo catálogo ${empresa.split("|")[2]}!`)
+			setTexto2(`Sin embargo, si te interesa buscar ropa similar, ¡anímate a revisar nuestro nuevo catálogo ${empresa.split("|")[1]}!`)
 		} else {
 			setTexto1("¡Gracias por tu compra y por apoyarme en este proyecto!")
-			setTexto2(`Si te interesa conseguir más ropa novedosa y accesible, ¡no dudes en revisar nuestro último catálogo ${empresa.split("|")[2]}!`)
+			setTexto2(`Si te interesa conseguir más ropa novedosa y accesible, ¡no dudes en revisar nuestro último catálogo ${empresa.split("|")[1]}!`)
 		}
 	}, [faltantes, empresa])
 
@@ -84,6 +84,10 @@ function Home() {
 		setCantidad(0)
 		total.current = 0
 		articulos.current = []
+		articulosFaltantes.current = []
+		setDelArt(!delArt)
+		setDelMis(!delMis)
+		setFaltantes(false)
 	}
 
 	const pushArticulo = () => {
@@ -133,7 +137,7 @@ function Home() {
 		const link = document.createElement('a');
 		if (typeof link.download === 'string') {
 			link.href = data;
-			link.download = `${empresa.split("|")[2] === 'CARMEL' ? "CRML_" : "PCFK_"}${campania}_${cliente.split(" ")[0] + "_"}${cliente.split(" ")[1]}.png`;
+			link.download = `${empresa.split("|")[1] === 'CARMEL' ? "CRML_" : "PCFK_"}${campania}_${cliente.split(" ")[0] + "_"}${cliente.split(" ")[1]}.png`;
 			document.body.appendChild(link);
 			link.click();
 			document.body.removeChild(link);
@@ -149,49 +153,35 @@ function Home() {
 			<div className={Styles.mainContainer}>
 				<div className={Styles.ticket} ref={printTicket}>
 					<div className={Styles.fondo}>
-						<div style={{
-							backgroundImage: `url(${empresa.split("|")[1]})`,
-							backgroundSize: 'cover',
-							width: '100%',
-							height: '100%'
-						}}>
-							<div className={Styles.fondoText1}>
-								Hola, {cliente.split(" ")[0]}
-								<p>{texto1}</p>
-								{faltantes ? articulosFaltantes.current.map(articulo => (
-									<div className={Styles.faltante} onClick={() => { spliceFaltante(articulo) }}
-										key={id++}>
-										<div>{articulo.codigo}&nbsp;&nbsp;&nbsp;{articulo.faltante}</div>
-										<div>S/{articulo.price}</div>
-									</div>
-								)) : null}
-								<p>{texto2}</p>
-							</div>
-							<div className={Styles.uploadButton}>
-								{!selectedImage && <input type="file" onChange={handleImageUpload} />}
-								{selectedImage && <Image src={selectedImage} width={220} height={220} alt="QR" priority />}
-								<div className={Styles.qrText}>Catalogo Virtual {empresa.split("|")[2]}</div>
-							</div>
-							<div className={Styles.fondoText2}>
-								<p>Recuerda que puedes hacer tus pedidos y consultar sobre las fechas de nuestras campañas mediante mi WhatsApp.</p>
-								Con cariño,
-								<div className={Styles.grupoImg}>
-									<Image src={'/wsp_logo.png'} width={40} height={40} alt='logo whatsapp' priority />
-									988463456
+						<div className={Styles.fondoText1}>
+							Hola, {cliente.split(" ")[0]}
+							<p>{texto1}</p>
+							{faltantes ? articulosFaltantes.current.map(articulo => (
+								<div className={Styles.faltante} onClick={() => { spliceFaltante(articulo) }}
+									key={id++}>
+									<div>{articulo.codigo}&nbsp;&nbsp;&nbsp;{articulo.faltante}</div>
+									<div>S/{articulo.price}</div>
 								</div>
+							)) : null}
+							<p>{texto2}</p>
+						</div>
+						<div className={Styles.uploadButton}>
+							{!selectedImage && <input type="file" onChange={handleImageUpload} />}
+							{selectedImage && <Image src={selectedImage} width={220} height={220} alt="QR" priority />}
+							<div className={Styles.qrText}>Catalogo Virtual {empresa.split("|")[1]}</div>
+						</div>
+						<div className={Styles.fondoText2}>
+							<p>Recuerda que puedes hacer tus pedidos y consultar sobre las fechas de nuestras campañas mediante mi WhatsApp.</p>
+							Con cariño,
+							<div className={Styles.grupoImg}>
+								<Image src={'/wsp_logo.png'} width={40} height={40} alt='logo whatsapp' priority />
+								988463456
 							</div>
 						</div>
 					</div>
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
-					<br />
+					{Array.from(Array(20).keys()).map(number => (
+						<br />
+					))}
 					<Image src={empresa.split("|")[0]} width={440} height={95} alt="logo empresa" priority></Image>
 					<div className={Styles.ticketHeader}>
 						<div>Pedido de Campaña #{campania}</div>
@@ -217,21 +207,6 @@ function Home() {
 					<div className={Styles.final}>¡Gracias por tu compra!</div>
 				</div>
 				<div className={Styles.addForm}>
-					<Collapsible label="Productos faltantes">
-						<div className={Styles.miniFlex}>
-							<label><input
-								type="checkbox"
-								name="terminos"
-								id="terminos"
-								checked={faltantes}
-								onChange={onChangeFaltantes}
-							/>Prendas faltantes</label>
-							<Input estado={codigo} cambiarEstado={setCodigo} label={"Codigo"} placeholder={"Agregue un código"}></Input>
-							<Input estado={faltante} cambiarEstado={setFaltante} label={"Articulo faltante"} placeholder={"Agregue un articulo faltante"}></Input>
-							<Input estado={price} cambiarEstado={setPrice} label={"Precio"} placeholder={"Agregue un precio"} tipo={"number"}></Input>
-							<button type='button' className={Styles.botonArticulo} onClick={pushFaltante}>Agregar faltante</button>
-						</div>
-					</Collapsible>
 					<Collapsible label="Datos generales">
 						<div className={Styles.miniFlex}>
 							<Select estado={empresa} cambiarEstado={setEmpresa}></Select>
@@ -246,6 +221,19 @@ function Home() {
 							<Input estado={precio} cambiarEstado={setPrecio} label={"Precio"} placeholder={"Agregue un precio"} tipo={"number"}></Input>
 							<Input estado={cantidad} cambiarEstado={setCantidad} label={"Cantidad"} placeholder={"Agrege una cantidad de articulos"} tipo={"number"} ></Input>
 							<button type='button' className={Styles.botonArticulo} onClick={pushArticulo}>Agregar artículo</button>
+							<label><input
+								type="checkbox"
+								name="terminos"
+								id="terminos"
+								checked={faltantes}
+								onChange={onChangeFaltantes}
+							/>Prendas faltantes</label>
+							{faltantes && <div className={Styles.miniFlex}>
+								<Input estado={codigo} cambiarEstado={setCodigo} label={"Código"} placeholder={"Agregue un código"}></Input>
+								<Input estado={faltante} cambiarEstado={setFaltante} label={"Artículo faltante"} placeholder={"Agregue un artículo faltante"}></Input>
+								<Input estado={price} cambiarEstado={setPrice} label={"Precio"} placeholder={"Agregue un precio"} tipo={"number"}></Input>
+								<button type='button' className={Styles.botonArticulo} onClick={pushFaltante}>Agregar faltante</button>
+							</div>}
 						</div>
 					</Collapsible>
 					<button type='button' className={Styles.botonTicket} onClick={makeTicket}>Finalizar ticket</button>

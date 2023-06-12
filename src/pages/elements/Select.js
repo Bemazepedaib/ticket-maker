@@ -12,8 +12,8 @@ function Select({ estado, cambiarEstado }) {
                 onBlur={e => { cambiarEstado(e.target.value) }}
                 onChange={e => { cambiarEstado(e.target.value) }}
             >
-                <option value={'/logo_carmel.png|/fondo_carmel.svg|CARMEL'}>Carmel</option>
-                <option value={'/logo_pcfk.png|/fondo_pcfk.svg|PACIFIKA'}>Pacifika</option>
+                <option value={'/logo_carmel.png|CARMEL'}>Carmel</option>
+                <option value={'/logo_pcfk.png|PACIFIKA'}>Pacifika</option>
             </select>
         </div>
     )
