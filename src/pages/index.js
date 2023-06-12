@@ -180,7 +180,7 @@ function Home() {
 						</div>
 					</div>
 					{Array.from(Array(20).keys()).map(number => (
-						<br />
+						<br key={number} />
 					))}
 					<Image src={empresa.split("|")[0]} width={440} height={95} alt="logo empresa" priority></Image>
 					<div className={Styles.ticketHeader}>
