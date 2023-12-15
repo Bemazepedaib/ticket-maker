@@ -148,6 +148,30 @@ function Home() {
 		ticketRef.current.focus()
 	}
 
+	const copyClipboard = async () => {
+		var mensaje = ""
+		if (articulosFaltantes.current.length > 0){
+			console.log("entra faltantes")
+			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} 🥰 Tu monto total es S/${total.current}, ya que alguno de tus productos se encontraba agotado.`
+		} else {
+			console.log("entra faltantes completos")
+			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} 🥰 Tu monto total es S/${total.current}.`
+		}
+		navigator.clipboard.writeText(mensaje).then(
+			() => {
+				console.log("Copy to clipboard")
+			},
+			() => {
+				console.log("Error: Something went wrong")
+			}
+		);
+	}
+
+	const executeBoth = async () => {
+		makeTicket();
+		copyClipboard();
+	}
+
 	return (
 		<>
 			<div className={Styles.mainContainer}>
@@ -236,7 +260,7 @@ function Home() {
 							</div>}
 						</div>
 					</Collapsible>
-					<button type='button' className={Styles.botonTicket} onClick={makeTicket}>Finalizar ticket</button>
+					<button type='button' className={Styles.botonTicket} onClick={executeBoth}>Finalizar ticket</button>
 				</div>
 			</div >
 
