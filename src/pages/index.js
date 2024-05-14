@@ -172,6 +172,25 @@ function Home() {
 		copyClipboard();
 	}
 
+	const copyFaltante = async () => {
+		var mensaje = ""
+		if (empresa.split("|")[1] == 'CARMEL'){
+			mensaje = `Hola, ${cliente}. Lamentablemente, tu pedido ${empresa.split("|")[1]} no pudo ser completado por falta de stock 😢 Si deseas, puedes pedir algo de nuestro catálogo actual. Aquí te envío los catálogos. Muchas gracias por la confianza ❣️
+			CARMEL Campaña ${Number(campania)+1}: Link`
+		} else {
+			mensaje = `Hola, ${cliente}. Lamentablemente, tu pedido ${empresa.split("|")[1]} no pudo ser completado por falta de stock 😢 Si deseas, puedes pedir algo de nuestro catálogo actual. Aquí te envío los catálogos. Muchas gracias por la confianza ❣️
+			PACIFIKA Campaña ${Number(campania)+1}: Link`
+		}
+		navigator.clipboard.writeText(mensaje).then(
+			() => {
+				console.log("Copy to clipboard")
+			},
+			() => {
+				console.log("Error: Something went wrong")
+			}
+		);
+	}
+
 	return (
 		<>
 			<div className={Styles.mainContainer}>
@@ -241,6 +260,7 @@ function Home() {
 					<Collapsible label="Datos del producto">
 						<div className={Styles.miniFlex}>
 							<Input estado={cliente} cambiarEstado={setCliente} label={"Cliente"} placeholder={"Agregue un cliente"} innerRef={ticketRef}></Input>
+							<button type='button' className={Styles.botonArticulo} onClick={copyFaltante}>No llegaron</button>
 							<Input estado={articulo} cambiarEstado={setArticulo} label={"Artículo"} placeholder={"Agregue un artículo"} innerRef={inputRef}></Input>
 							<Input estado={precio} cambiarEstado={setPrecio} label={"Precio"} placeholder={"Agregue un precio"} tipo={"number"}></Input>
 							<Input estado={cantidad} cambiarEstado={setCantidad} label={"Cantidad"} placeholder={"Agrege una cantidad de articulos"} tipo={"number"} ></Input>
