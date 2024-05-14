@@ -174,12 +174,19 @@ function Home() {
 
 	const copyFaltante = async () => {
 		var mensaje = ""
+		var campana = Number(campania)+1
+		var numero = 'c00'
+		if (campana > 10){
+			numero = `c${campana}`
+		} else {
+			numero = `c0${campana}`
+		}
 		if (empresa.split("|")[1] == 'CARMEL'){
 			mensaje = `Hola, ${cliente}. Lamentablemente, tu pedido ${empresa.split("|")[1]} no pudo ser completado por falta de stock 😢 Si deseas, puedes pedir algo de nuestro catálogo actual. Aquí te envío los catálogos. Muchas gracias por la confianza ❣️
-			CARMEL Campaña ${Number(campania)+1}: Link`
+CARMEL Campaña ${campana}: https://catalogo.pacifika.com.pe/2024${numero}/${numero}ed02-2024/`
 		} else {
 			mensaje = `Hola, ${cliente}. Lamentablemente, tu pedido ${empresa.split("|")[1]} no pudo ser completado por falta de stock 😢 Si deseas, puedes pedir algo de nuestro catálogo actual. Aquí te envío los catálogos. Muchas gracias por la confianza ❣️
-			PACIFIKA Campaña ${Number(campania)+1}: Link`
+PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2024${numero}/${numero}ed02-2024/`
 		}
 		navigator.clipboard.writeText(mensaje).then(
 			() => {
