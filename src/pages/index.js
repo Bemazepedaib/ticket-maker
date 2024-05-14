@@ -183,9 +183,11 @@ function Home() {
 		}
 		if (empresa.split("|")[1] == 'CARMEL'){
 			mensaje = `Hola, ${cliente}. Lamentablemente, tu pedido ${empresa.split("|")[1]} no pudo ser completado por falta de stock 😢 Si deseas, puedes pedir algo de nuestro catálogo actual. Aquí te envío los catálogos. Muchas gracias por la confianza ❣️
-CARMEL Campaña ${campana}: https://catalogo.pacifika.com.pe/2024${numero}/${numero}ed02-2024/`
+CARMEL Campaña ${campana}: https://catalogo.pacifika.com.pe/2024${numero}/${numero}ed02-2024/
+PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2024${numero}/${numero}ed02-2024/`
 		} else {
 			mensaje = `Hola, ${cliente}. Lamentablemente, tu pedido ${empresa.split("|")[1]} no pudo ser completado por falta de stock 😢 Si deseas, puedes pedir algo de nuestro catálogo actual. Aquí te envío los catálogos. Muchas gracias por la confianza ❣️
+CARMEL Campaña ${campana}: https://catalogo.pacifika.com.pe/2024${numero}/${numero}ed02-2024/
 PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2024${numero}/${numero}ed02-2024/`
 		}
 		navigator.clipboard.writeText(mensaje).then(
