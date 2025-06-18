@@ -49,7 +49,7 @@ function Home() {
 	useEffect(() => {
 		if (faltantes) {
 			setTexto1("Muchas gracias por tu compra. Lamentablemente, algunos de los productos de tu pedido estaban agotados:")
-			setTexto2(`Sin embargo, si te interesa buscar ropa similar, ¡anímate a revisar nuestro nuevo catálogo ${empresa.split("|")[1]}!`)
+			setTexto2(`Sin embargo, si te interesa buscar ropa similar, ¡anímate a revisar nuestro nuevo catálogo ${empresa.split("|")[1]} Campaña ${campania+1}!`)
 		} else {
 			setTexto1("¡Gracias por tu compra y por apoyarme en este proyecto!")
 			setTexto2(`Si te interesa conseguir más ropa novedosa y accesible, ¡no dudes en revisar nuestro último catálogo ${empresa.split("|")[1]}!`)
