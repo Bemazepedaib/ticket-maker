@@ -28,8 +28,6 @@ function Home() {
 	const [faltante, setFaltante] = useState("")
 	const [price, setPrice] = useState(0)
 
-	const [selectedImage, setSelectedImage] = useState(null);
-
 	const total = useRef(0.0)
 
 	const [texto1, setTexto1] = useState('¡Gracias por tu compra y por apoyarme en este proyecto!');
@@ -55,11 +53,6 @@ function Home() {
 			setTexto2(`Si te interesa conseguir más ropa novedosa y accesible, ¡no dudes en revisar nuestro último catálogo ${empresa.split("|")[1]}!`)
 		}
 	}, [faltantes, empresa])
-
-	const handleImageUpload = (event) => {
-		const file = event.target.files[0];
-		setSelectedImage(URL.createObjectURL(file));
-	}
 
 	const onChangeFaltantes = (e) => {
 		setFaltantes(e.target.checked)
@@ -183,12 +176,12 @@ function Home() {
 		}
 		if (empresa.split("|")[1] == 'CARMEL'){
 			mensaje = `Hola, ${cliente}. Lamentablemente, tu pedido ${empresa.split("|")[1]} no pudo ser completado por falta de stock 😢 Si deseas, puedes pedir algo de nuestro catálogo actual. Aquí te envío los catálogos. Muchas gracias por la confianza ❣️
-CARMEL Campaña ${campana}: https://catalogo.carmel.com.pe/2024${numero}/${numero}ed01-2024/
-PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2024${numero}/${numero}ed02-2024/`
+CARMEL Campaña ${campana}: https://catalogo.carmel.com.pe/2025${numero}/${numero}ed01-2025/
+PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2025${numero}/${numero}ed02-2025/`
 		} else {
 			mensaje = `Hola, ${cliente}. Lamentablemente, tu pedido ${empresa.split("|")[1]} no pudo ser completado por falta de stock 😢 Si deseas, puedes pedir algo de nuestro catálogo actual. Aquí te envío los catálogos. Muchas gracias por la confianza ❣️
-CARMEL Campaña ${campana}: https://catalogo.carmel.com.pe/2024${numero}/${numero}ed01-2024/
-PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2024${numero}/${numero}ed02-2024/`
+CARMEL Campaña ${campana}: https://catalogo.carmel.com.pe/2025${numero}/${numero}ed01-2025/
+PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2025${numero}/${numero}ed02-2025/`
 		}
 		navigator.clipboard.writeText(mensaje).then(
 			() => {
@@ -227,7 +220,7 @@ PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2024${numero}/${n
 						<b>TOTAL:</b> S/{total.current}
 					</div>
 					<div className={Styles.final}>¡Gracias por tu compra!</div>
-					{Array.from(Array(10).keys()).map(number => (
+					{Array.from(Array(5).keys()).map(number => (
 						<br key={number} />
 					))}
 					<div className={Styles.fondo}>
@@ -242,19 +235,6 @@ PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2024${numero}/${n
 								</div>
 							)) : null}
 							<p>{texto2}</p>
-						</div>
-						<div className={Styles.uploadButton}>
-							{!selectedImage && <input type="file" onChange={handleImageUpload} />}
-							{selectedImage && <Image src={selectedImage} width={220} height={220} alt="QR" priority />}
-							<div className={Styles.qrText}>Catalogo Virtual {empresa.split("|")[1]}</div>
-						</div>
-						<div className={Styles.fondoText2}>
-							<p>Recuerda que puedes hacer tus pedidos y consultar sobre las fechas de nuestras campañas mediante mi WhatsApp.</p>
-							Con cariño,
-							<div className={Styles.grupoImg}>
-								<Image src={'/wsp_logo.png'} width={40} height={40} alt='logo whatsapp' priority />
-								988463456
-							</div>
 						</div>
 					</div>
 				</div>
