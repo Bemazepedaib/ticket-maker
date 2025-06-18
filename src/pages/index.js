@@ -204,6 +204,32 @@ PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2024${numero}/${n
 		<>
 			<div className={Styles.mainContainer}>
 				<div className={Styles.ticket} ref={printTicket}>
+					<Image src={empresa.split("|")[0]} width={440} height={95} alt="logo empresa" priority></Image>
+					<div className={Styles.ticketHeader}>
+						<div>Pedido de Campaña #{campania}</div>
+						{fecha}
+					</div>
+					<hr className={Styles.linea}></hr>
+					<div className={Styles.ticketClient}>
+						Para:&nbsp;<div className={Styles.client}>{cliente}</div>
+					</div>
+					<div className={Styles.ticketProducts}>
+						{articulos.current ? articulos.current.map(articulo => (
+							<div className={Styles.articulo} onClick={() => { spliceArticulo(articulo) }}
+								key={key++}>
+								{articulo.cantidad}&nbsp;&nbsp;{articulo.articulo}
+								<div className={Styles.precio}>S/{articulo.precio}</div>
+							</div>
+						)) : null}
+					</div>
+					<hr className={Styles.linea}></hr>
+					<div className={Styles.total}>
+						<b>TOTAL:</b> S/{total.current}
+					</div>
+					<div className={Styles.final}>¡Gracias por tu compra!</div>
+					{Array.from(Array(10).keys()).map(number => (
+						<br key={number} />
+					))}
 					<div className={Styles.fondo}>
 						<div className={Styles.fondoText1}>
 							Hola, {cliente.split(" ")[0]}
@@ -231,32 +257,6 @@ PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2024${numero}/${n
 							</div>
 						</div>
 					</div>
-					{Array.from(Array(20).keys()).map(number => (
-						<br key={number} />
-					))}
-					<Image src={empresa.split("|")[0]} width={440} height={95} alt="logo empresa" priority></Image>
-					<div className={Styles.ticketHeader}>
-						<div>Pedido de Campaña #{campania}</div>
-						{fecha}
-					</div>
-					<hr className={Styles.linea}></hr>
-					<div className={Styles.ticketClient}>
-						Para:&nbsp;<div className={Styles.client}>{cliente}</div>
-					</div>
-					<div className={Styles.ticketProducts}>
-						{articulos.current ? articulos.current.map(articulo => (
-							<div className={Styles.articulo} onClick={() => { spliceArticulo(articulo) }}
-								key={key++}>
-								{articulo.cantidad}&nbsp;&nbsp;{articulo.articulo}
-								<div className={Styles.precio}>S/{articulo.precio}</div>
-							</div>
-						)) : null}
-					</div>
-					<hr className={Styles.linea}></hr>
-					<div className={Styles.total}>
-						<b>TOTAL:</b> S/{total.current}
-					</div>
-					<div className={Styles.final}>¡Gracias por tu compra!</div>
 				</div>
 				<div className={Styles.addForm}>
 					<Collapsible label="Datos generales">
