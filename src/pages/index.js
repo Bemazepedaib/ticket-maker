@@ -231,7 +231,6 @@ PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2025${numero}/${n
 								<div className={Styles.faltante} onClick={() => { spliceFaltante(articulo) }}
 									key={id++}>
 									<div>{articulo.codigo}&nbsp;&nbsp;&nbsp;{articulo.faltante}</div>
-									<div>S/{articulo.price}</div>
 								</div>
 							)) : null}
 							<p>{texto2}</p>
