@@ -263,7 +263,6 @@ PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2025${numero}/${n
 							{faltantes && <div className={Styles.miniFlex}>
 								<Input estado={codigo} cambiarEstado={setCodigo} label={"Código"} placeholder={"Agregue un código"}></Input>
 								<Input estado={faltante} cambiarEstado={setFaltante} label={"Artículo faltante"} placeholder={"Agregue un artículo faltante"}></Input>
-								<Input estado={price} cambiarEstado={setPrice} label={"Precio"} placeholder={"Agregue un precio"} tipo={"number"}></Input>
 								<button type='button' className={Styles.botonArticulo} onClick={pushFaltante}>Agregar faltante</button>
 							</div>}
 						</div>
