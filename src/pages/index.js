@@ -145,10 +145,10 @@ function Home() {
 		var mensaje = ""
 		if (articulosFaltantes.current.length > 0){
 			console.log("entra faltantes")
-			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} 🥰 Tu monto total es S/${total.current}, ya que alguno de tus productos se encontraba agotado.`
+			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} campaña #${campania}. 🥰 Tu monto total es S/${total.current}, ya que alguno de tus productos se encontraba agotado.`
 		} else {
 			console.log("entra faltantes completos")
-			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} 🥰 Tu monto total es S/${total.current}.`
+			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} campaña #${campania}. 🥰 Tu monto total es S/${total.current}.`
 		}
 		navigator.clipboard.writeText(mensaje).then(
 			() => {
