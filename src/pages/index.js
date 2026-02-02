@@ -146,10 +146,10 @@ function Home() {
 		var mensaje = ""
 		if (articulosFaltantes.current.length > 0){
 			console.log("entra faltantes")
-			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} campaña #${campania}. 🥰 Tu monto total es S/${total.current}, ya que alguno de tus productos se encontraba agotado. No olvides cancelar tu boleta a más tardar el ${fechaPago}.`
+			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} campaña #${campania}. 🥰 Tu monto total es S/${total.current}, ya que alguno de tus productos se encontraba agotado. No olvides cancelar tu boleta a más tardar el ${fechaPago.split("-").reverse().join("/")}.`
 		} else {
 			console.log("entra faltantes completos")
-			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} campaña #${campania}. 🥰 Tu monto total es S/${total.current}. No olvides cancelar tu boleta a más tardar el ${fechaPago}.`
+			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} campaña #${campania}. 🥰 Tu monto total es S/${total.current}. No olvides cancelar tu boleta a más tardar el ${fechaPago.split("-").reverse().join("/")}.`
 		}
 		navigator.clipboard.writeText(mensaje).then(
 			() => {
@@ -201,7 +201,7 @@ PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2025${numero}/${n
 					<Image src={empresa.split("|")[0]} width={440} height={95} alt="logo empresa" priority></Image>
 					<div className={Styles.ticketHeader}>
 						<div>Pedido de Campaña #{campania}</div>
-						{fechaActual}
+						{fechaActual.split("-").reverse().join("/")}
 					</div>
 					<hr className={Styles.linea}></hr>
 					<div className={Styles.ticketClient}>
