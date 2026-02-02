@@ -14,7 +14,8 @@ function Home() {
 	const [empresa, setEmpresa] = useState('/logo_carmel.png|CARMEL')
 
 	const [campania, setCampania] = useState("")
-	const [fecha, setFecha] = useState("")
+	const [fechaActual, setFechaActual] = useState("")
+	const [fechaPago, setFechaPago] = useState("")
 	const [cliente, setCliente] = useState("")
 
 	const articulos = useRef([])
@@ -145,10 +146,10 @@ function Home() {
 		var mensaje = ""
 		if (articulosFaltantes.current.length > 0){
 			console.log("entra faltantes")
-			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} campaña #${campania}. 🥰 Tu monto total es S/${total.current}, ya que alguno de tus productos se encontraba agotado.`
+			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} campaña #${campania}. 🥰 Tu monto total es S/${total.current}, ya que alguno de tus productos se encontraba agotado. No olvides cancelar tu boleta a más tardar el ${fechaPago}.`
 		} else {
 			console.log("entra faltantes completos")
-			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} campaña #${campania}. 🥰 Tu monto total es S/${total.current}.`
+			mensaje = `¡Hola, ${cliente}! Ya tenemos listo tu pedido ${empresa.split("|")[1]} campaña #${campania}. 🥰 Tu monto total es S/${total.current}. No olvides cancelar tu boleta a más tardar el ${fechaPago}.`
 		}
 		navigator.clipboard.writeText(mensaje).then(
 			() => {
@@ -200,7 +201,7 @@ PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2025${numero}/${n
 					<Image src={empresa.split("|")[0]} width={440} height={95} alt="logo empresa" priority></Image>
 					<div className={Styles.ticketHeader}>
 						<div>Pedido de Campaña #{campania}</div>
-						{fecha}
+						{fechaActual}
 					</div>
 					<hr className={Styles.linea}></hr>
 					<div className={Styles.ticketClient}>
@@ -242,7 +243,8 @@ PACIFIKA Campaña ${campana}: https://catalogo.pacifika.com.pe/2025${numero}/${n
 						<div className={Styles.miniFlex}>
 							<Select estado={empresa} cambiarEstado={setEmpresa}></Select>
 							<Input estado={campania} cambiarEstado={setCampania} label={"Campaña"} placeholder={"Agregue una campaña"} ></Input>
-							<Input estado={fecha} cambiarEstado={setFecha} label={"Fecha"} placeholder={"Agregue una fecha"} ></Input>
+							<Input estado={fechaActual} cambiarEstado={setFechaActual} label={"Fecha actual"} placeholder={"Agregue una fecha"} tipo={"date"} ></Input>
+							<Input estado={fechaPago} cambiarEstado={setFechaPago} label={"Fecha pago"} placeholder={"Agregue una fecha"} tipo={"date"} ></Input>
 						</div>
 					</Collapsible>
 					<Collapsible label="Datos del producto">
